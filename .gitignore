@@ -83,6 +83,7 @@ typings/
 model.nlp
 .DS_Store
 dist
+build
 
 # Gatsby files
 .cache/
