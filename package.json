@@ -7,20 +7,22 @@
   "scripts": {
     "test": "npm run gen && node tests/run.mjs",
     "bp": "rm -rf ./dist && rm -rf ./node_modules && npm i --save && tsc && npm publish",
-    "gen": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/enterprise-cmcs/macpro-serverless-running-stages"
   },
   "keywords": [
-    "Serverless Stage Destroyer",
-    "Serverless"
+    "Serverless Running Stages",
+    "Serverless",
+    "Running",
+    "Stages",
+    "Environments"
   ],
-  "author": "mdial89f",
   "license": "MIT",
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.128.0",
     "@aws-sdk/client-s3": "^3.128.0",
     "@types/readline-sync": "^1.4.4",
     "readline-sync": "^1.4.10"
@@ -28,11 +30,9 @@
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@serverless/compose": "^1.2.4",
     "@types/node": "^18.0.4",
     "lodash": "^4.17.21",
     "semantic-release": "^19.0.3",
-    "serverless": "^3.21.0",
     "tslog": "^4.4.3",
     "typescript": "^4.7.4"
   },
