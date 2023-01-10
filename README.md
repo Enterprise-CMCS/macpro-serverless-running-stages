@@ -35,10 +35,6 @@ SHIFT + CMD/CTRL + V
 
 ---
 
-### See the [Storybook](https://cmsgov.github.io/macpro-serverless-running-stages/) for a preview of the component library.
-
----
-
 ## Overview
 
 This is a React implementation of USWDS 3.0 in conjuction with some MACPRO theming. This library is meant to be consumed for implementing a USWDS compliant web application in React. For more information about USWDS and their design principles refer to the below link.
@@ -67,7 +63,7 @@ import "@enterprise-cmcs/macpro-serverless-running-stages/build/assets/css/index
 
 This will include the css required for the styles to be applied to any components that are used.
 
-With the project now set up you can import any of the components in your code and use them. Refer to the [StoryBook](https://cmsgov.github.io/macpro-serverless-running-stages/) for implementation details on each component.
+With the project now set up you can import any of the components in your code and use them.
 
 ## Contributing
 
