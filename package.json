@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "typings": "./dist/index.js",
   "scripts": {
-    "test": "npm run gen && node tests/run.mjs",
+    "test": "npm run build && node tests/run.mjs",
     "bp": "rm -rf ./dist && rm -rf ./node_modules && npm i --save && tsc && npm publish",
     "build": "tsc",
     "prepublishOnly": "npm run build"
