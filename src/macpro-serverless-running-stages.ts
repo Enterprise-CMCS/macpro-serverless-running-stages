@@ -10,6 +10,11 @@ export class ServerlessRunningStages {
     return [];
   }
 
+  static get test() {
+    console.log("a1");
+    return 1;
+  }
+
   private async getAllStacksForStage(
     region: string,
     stage: string,
