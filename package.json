@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "@enterprise-cmcs/macpro-serverless-running-stages",
   "version": "1.0.0",
   "description": "Deletes all Cloudformation Stacks associated to a specified Serverless stage.",
