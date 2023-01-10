@@ -90,7 +90,7 @@ info You can now run `yarn link "@enterprise-cmcs/macpro-serverless-running-stag
 ```
 
 - npm install
-- npm run gen (this builds the package)
+- npm run build (this builds the package)
 
 In your local yarn project that will be using the macpro-serverless-running stages package, run:
 
