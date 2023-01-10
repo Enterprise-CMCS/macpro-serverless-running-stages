@@ -7,12 +7,7 @@ type Tag = {
 
 export class ServerlessRunningStages {
   private async getAllStacksForRegion(region: string) {
-    const client = new CloudFormationClient({ region: region });
-    const stacks = [];
-    for await (const page of paginateDescribeStacks({ client }, {})) {
-      stacks.push(...(page.Stacks || []));
-    }
-    return stacks;
+    return [];
   }
 
   private async getAllStacksForStage(
@@ -28,11 +23,6 @@ export class ServerlessRunningStages {
       },
     ];
     matchTags.push(...(addFilters || []));
-    for (let matchTag of matchTags) {
-      stacks = stacks.filter((i) =>
-        i.Tags?.find((j) => j.Key == matchTag.Key && j.Value == matchTag.Value)
-      );
-    }
     return stacks;
   }
 }
