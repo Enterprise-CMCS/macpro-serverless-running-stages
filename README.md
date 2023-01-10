@@ -82,17 +82,32 @@ See [LICENSE](LICENSE) for full details.
 ## Instructions to test locally with a yarn project
 
 - in your terminal from your local clone of macpro-serverless-running-stages with your development branch
-- `yarn link`
+- `yarn link` (note, when testing is complete, run `yarn unlink`)
+  that will return output like:
 
-- that's going to spit out some output like this
-  info You can now run `yarn link "@stratiformdigital/serverless-stage-destroyer"` in the projects where you want to use this package and it will be used instead.
-- save that yarn link output for later, dont forget the quotes... yarn link "@stratiformdigital/serverless-stage-destroyer"
-- run npm install
-- run npm run gen (this builds the package)
-- go into your cms-bigmac repo
-- checkout the thai branch
-- run rm -rf node_modules
-- run yarn link "@stratiformdigital/serverless-stage-destroyer"
-- run yarn install
-- at this point, if you go to finder or a terminal, you should see that node_modules/@stratiformdigital/serverless-stage-destroyer is actually a symlink to your repo's folder... this is the trick... the link tells it to get the code from wherever you generated the link
-- now you can destroy and itll use your code
+```
+yarn link v1.22.19
+warning ../../../package.json: No license field
+success Registered "@enterprise-cmcs/macpro-serverless-running-stages".
+info You can now run `yarn link "@enterprise-cmcs/macpro-serverless-running-stages"` in the projects where you want to use this package and it will be used instead.
+✨  Done in 0.06s.
+```
+
+- npm install
+- npm run gen (this builds the package)
+
+In your local yarn project that will be using the macpro-serverless-running stages package, run:
+
+- `rm -rf node_modules`
+- `yarn link "@enterprise-cmcs/macpro-serverless-running-stages"`
+  that will return output like:
+
+```
+yarn link v1.22.19
+warning ../../../package.json: No license field
+success Using linked package for "@enterprise-cmcs/macpro-serverless-running-stages".
+✨  Done in 0.05s.
+```
+
+- `yarn install`
+- Note: when testing is complete run `yarn unlink "@enterprise-cmcs/macpro-serverless-running-stages"`
