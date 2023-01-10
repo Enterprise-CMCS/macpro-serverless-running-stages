@@ -13,7 +13,7 @@ We love your input! We want to make contributing to this project as easy and tra
 We use [Storybook](https://storybook.js.org/) to build, organize, and document the components in this library. To get started, clone the repository:
 
 ```
-git clone https://github.com/CMSgov/macpro-ux-lib macpro-ux-lib
+git clone https://github.com/CMSgov/macpro-serverless-running-stages macpro-serverless-running-stages
 ```
 
 Create a branch describing the issue or feature you are contributing:
@@ -26,7 +26,7 @@ git checkout -b add-radio-button
 Run Storybook with the following:
 
 ```
-cd macpro-ux-lib
+cd macpro-serverless-running-stages
 npm install
 npm run storybook
 ```
@@ -67,17 +67,17 @@ Finally, add your new component to `src/index.tsx` in order to appear in Storybo
 
 We use pull request to drive a variety of actions and workflows in the project.
 
-Be sure to follow the template when creating your [pull request on GitHub](https://github.com/CMSgov/macpro-ux-lib/pulls). Upon doing this, and provided all of the additional checks pass, your code will be reviewed and approved if the changes are in line with the projects plans.
+Be sure to follow the template when creating your [pull request on GitHub](https://github.com/CMSgov/macpro-serverless-running-stages/pulls). Upon doing this, and provided all of the additional checks pass, your code will be reviewed and approved if the changes are in line with the projects plans.
 
 ## Deployment
 
 The short version of the CICD Pipeline is `Pull Request → Github Actions → AWS Amplify Temporary Environments → Accessible Application → Pull Request Approval → Master deployment & New Version `
 
-All of the deployments start with new code on a branch. A branch environment is created and this is where automated and manual testing occurs. Once all of the checks have been passed on a branch, it is pulled into the Master branch. The master branch specifically lives in the git-hub actions branch `gha-pages` and serves as our most up to date deployment environment. It is where live users have access to the new features and new components. It is available to view at [https://cmsgov.github.io/macpro-ux-lib](https://cmsgov.github.io/macpro-ux-lib).
+All of the deployments start with new code on a branch. A branch environment is created and this is where automated and manual testing occurs. Once all of the checks have been passed on a branch, it is pulled into the Master branch. The master branch specifically lives in the git-hub actions branch `gha-pages` and serves as our most up to date deployment environment. It is where live users have access to the new features and new components. It is available to view at [https://cmsgov.github.io/macpro-serverless-running-stages](https://cmsgov.github.io/macpro-serverless-running-stages).
 
 ## Testing the NPM Distribution
 
-We have a simple React application in `examples/macpro-example` that can be used as a sandbox environment. This application has `@enterprise-cmcs/macpro-ux-lib` listed as a dependeny in its `package.json` file which allows you to experience working with the library as any other user who installs the package. Running the application should be simple:
+We have a simple React application in `examples/macpro-example` that can be used as a sandbox environment. This application has `@enterprise-cmcs/macpro-serverless-running-stages` listed as a dependeny in its `package.json` file which allows you to experience working with the library as any other user who installs the package. Running the application should be simple:
 
 ```
 npm install && npm start
@@ -98,7 +98,7 @@ cd examples/macpro-example
 npm start
 ```
 
-If this works as expected, the `use-local-build` script will run the build and replace `@enterprise-cmcs/macpro-ux-lib` in the example project with the build output. The example application should start without any issue. Implement whatever is necessary in the example app to confirm your changes will work when the package is updated.
+If this works as expected, the `use-local-build` script will run the build and replace `@enterprise-cmcs/macpro-serverless-running-stages` in the example project with the build output. The example application should start without any issue. Implement whatever is necessary in the example app to confirm your changes will work when the package is updated.
 
 **Note:** It is possible that large changes may persist in `build/` between builds, such as changing a directory name. If you encounter an issue where expected changes are not taking effect, try deleting `build/` at the project root and run `npm run use-local-build` again.
 
