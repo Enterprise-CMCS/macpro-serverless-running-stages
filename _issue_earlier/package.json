@@ -9,8 +9,6 @@
     "test": "npm run gen && node tests/run.mjs",
     "bp": "rm -rf ./dist && rm -rf ./node_modules && npm i --save && tsc && npm publish",
     "gen": "tsc",
-    "test2": "jest",
-    "coverage": "jest --coverage",
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
