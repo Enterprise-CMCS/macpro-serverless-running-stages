@@ -5,11 +5,8 @@ SHIFT + CMD/CTRL + V
 -->
 
 <h1 align="center" style="border-bottom: none;"> macpro-serverless-running-stages</h1>
-<h3 align="center">Common UI/UX Library built on USWDS 3.0 and packaged for easier distribution throughout CMS.</h3>
+<h3 align="center">NPM module to identify currently running stages of the [Serverless framework](https://www.serverless.com/) in an AWS account.</h3>
 <p align="center">
-  <a href="https://cmsgov.github.io/macpro-serverless-running-stages/">
-    <img alt="Storybook" src="https://img.shields.io/badge/Storybook-Docs-pink.svg">
-  </a>
   <a href="https://github.com/cmsgov/macpro-serverless-running-stages/releases/latest">
     <img alt="latest release" src="https://img.shields.io/github/release/cmsgov/macpro-serverless-running-stages.svg">
   </a>
@@ -35,12 +32,6 @@ SHIFT + CMD/CTRL + V
 
 ---
 
-## Overview
-
-This is a React implementation of USWDS 3.0 in conjuction with some MACPRO theming. This library is meant to be consumed for implementing a USWDS compliant web application in React. For more information about USWDS and their design principles refer to the below link.
-
-[USWDS Design Standards](https://designsystem.digital.gov/design-principles/)
-
 ## Usage and Getting Started
 
 To install the package run the following command:
@@ -55,25 +46,21 @@ or
 yarn add @enterprise-cmcs/macpro-serverless-running-stages
 ```
 
-After installing the package in the root level of your project include this import statement
+After installing the package in your project include this import statement
 
 ```
-import "@enterprise-cmcs/macpro-serverless-running-stages/build/assets/css/index.css";
+import { ServerlessRunningStages } from "@enterprise-cmcs/macpro-serverless-running-stages";
 ```
 
-This will include the css required for the styles to be applied to any components that are used.
+With ServerlessRunningStages imported you can now execute it like:
 
-With the project now set up you can import any of the components in your code and use them.
+```
+await ServerlessRunningStages.getAllStagesForRegion("us-east-1");
+```
 
 ## Contributing
 
 Found a bug, want to help with updating the docs or maybe you want to help add a feature. Refer to our contribution documentation for more information: [Documentation](./docs/CONTRIBUTING.MD)
-
-## License
-
-[![License](https://img.shields.io/badge/License-CC0--1.0--Universal-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
-
-See [LICENSE](LICENSE) for full details.
 
 ## Instructions to test locally with a yarn project
 
@@ -107,3 +94,9 @@ success Using linked package for "@enterprise-cmcs/macpro-serverless-running-sta
 
 - `yarn install`
 - Note: when testing is complete run `yarn unlink "@enterprise-cmcs/macpro-serverless-running-stages"`
+
+## License
+
+[![License](https://img.shields.io/badge/License-CC0--1.0--Universal-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
+
+See [LICENSE](LICENSE) for full details.
