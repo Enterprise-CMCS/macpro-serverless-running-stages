@@ -1,12 +1,8 @@
 {
-  "include": [
-    "src/*"
-  ],
+  "include": ["src/*"],
   "compilerOptions": {
     "target": "ESNEXT",
-    "lib": [
-      "es2017"
-    ],
+    "lib": ["es2017"],
     "module": "commonjs",
     "declaration": true,
     "outDir": "./dist",
@@ -14,9 +10,7 @@
     "strict": true,
     "baseUrl": "src",
     "paths": {
-      "test-setup": [
-        "test-setup"
-      ]
+      "test-setup": ["test-setup"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
