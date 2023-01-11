@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-command:
-    name: Run Command
+  list-running-stages:
+    name: List Running Stages
     runs-on: ubuntu-20.04
 
     permissions:
@@ -30,7 +30,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ github.workflow }}-${{ github.job }}-${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -40,11 +40,23 @@ jobs:
           role-duration-seconds: 10800
 
       - name: Get a list of running stages
-        id: running-stages
+        id: runningStages
         run: |
-          echo "RUNNING_STAGES<<EOF" >> $GITHUB_OUTPUT
-          run listRunningStages --string >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          runningStages=`run listRunningStages | grep "runningStages="`
+          echo $runningStages >> $GITHUB_OUTPUT
+
+      - name: Slack Notification - notify of currently running stages
+        uses: rtCamp/action-slack-notify@v2
+        if: env.SLACK_WEBHOOK != '' && steps.runningStages.outputs.runningStages != ''
+        env:
+          SLACK_MSG_AUTHOR: ${{ github.repository }}
+          SLACK_COLOR: ${{job.status}}
+          SLACK_ICON: https://github.com/cmsgov.png?size=48
+          SLACK_TITLE: Currently Running Stages
+          SLACK_MESSAGE: ${{ steps.runningStages.outputs.runningStages }}
+          SLACK_USERNAME: ${{ github.repository }} - ${{ github.workflow }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          MSG_MINIMAL: true
 
       - name: Slack Notification - notify of failure reporting on running stages
         uses: rtCamp/action-slack-notify@v2
@@ -55,19 +67,6 @@ jobs:
           SLACK_ICON: https://github.com/cmsgov.png?size=48
           SLACK_TITLE: Failure retrieving currently running stages
           SLACK_MESSAGE: Failure retrieving currently running stages
-          SLACK_USERNAME: ${{ github.repository }} - ${{ github.workflow }}
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-          MSG_MINIMAL: true
-
-      - name: Slack Notification - notify of currently running stages
-        uses: rtCamp/action-slack-notify@v2
-        if: env.SLACK_WEBHOOK != '' && steps.running-stages.outputs.RUNNING_STAGES
-        env:
-          SLACK_MSG_AUTHOR: ${{ github.repository }}
-          SLACK_COLOR: ${{job.status}}
-          SLACK_ICON: https://github.com/cmsgov.png?size=48
-          SLACK_TITLE: Currently Running Stages
-          SLACK_MESSAGE: ${{ steps.running-stages.outputs.RUNNING_STAGES }}
           SLACK_USERNAME: ${{ github.repository }} - ${{ github.workflow }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
           MSG_MINIMAL: true
