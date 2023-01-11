@@ -21,7 +21,7 @@ export class ServerlessRunningStages {
     region: string,
     ignoreStages = ["master"]
   ) {
-    const client = new CloudFormationClient({ region: region });
+    const client = new CloudFormationClient({ region });
     const stages: string[] = [];
 
     for await (const page of paginateDescribeStacks({ client }, {})) {
