@@ -1,60 +1,89 @@
-import { it, describe, expect, vi, assert, test } from "vitest";
+import { it, describe, expect, vi, assert, test, beforeEach } from "vitest";
 import { ServerlessRunningStages } from "../index";
-
 import {
   CloudFormationClient,
   paginateDescribeStacks,
+  DescribeStacksCommand,
   Stack,
-  Tag,
+  //   Tag,
 } from "@aws-sdk/client-cloudformation";
+import { mockClient } from "aws-sdk-client-mock";
 
-vi.mock("CloudFormationClient");
+const cfnMock = mockClient(CloudFormationClient);
 
-// test('mocked axios', async () => {
-//   await axios.get('string')
+beforeEach(() => {
+  cfnMock.reset();
+});
 
-//   expect(axios.get).toHaveBeenCalledWith('string')
-//   expect(axios.post).toBeUndefined()
-// })
+describe("test paginate describe stacks command", () => {
+  it("describe stacks command returns proper value", async () => {
+    cfnMock
+      .on(DescribeStacksCommand, {
+        // NextToken: undefined,
+      })
+      .resolves({
+        NextToken: "1",
+        Stacks: [
+          {
+            StackName: "Bob",
+            CreationTime: new Date(0),
+            StackStatus: "Great",
+          },
+        ],
+      })
+      .on(DescribeStacksCommand, {
+        NextToken: "1",
+      })
+      .resolves({
+        Stacks: [
+          {
+            StackName: "Fred",
+            CreationTime: new Date(0),
+            StackStatus: "Good",
+          },
+        ],
+      });
 
-// test('can get actual axios', async () => {
-//   const ax = await vi.importActual<typeof axios>('axios')
+    const client = new CloudFormationClient({});
+    // const stacks = await client.send(new DescribeStacksCommand({}));
 
-//   expect(vi.isMockFunction(ax.get)).toBe(false)
-// })
+    const paginator = paginateDescribeStacks({ client }, {});
 
-describe("index test", () => {
-  it("test function returns proper value", () => {
-    // const workflowFunction = vi.fn(
-    //   () => ServerlessRunningStages.getAllStagesForRegion
-    // );
+    const stacks: Stack[] = [];
+    for await (const page of paginator) {
+      console.log("page:", page);
+      stacks.push(...(page.Stacks || []));
+    }
 
-    // console.log(workflowFunction());
-
-    expect(
-      ServerlessRunningStages.getAllStagesForRegion("my-region")
-    ).toReturnWith([]);
+    expect(stacks).toHaveLength(2);
+    expect(stacks[0]).toEqual({
+      StackName: "Bob",
+      CreationTime: new Date(0),
+      StackStatus: "Great",
+    });
+    expect(stacks[1]).toEqual({
+      StackName: "Fred",
+      CreationTime: new Date(0),
+      StackStatus: "Good",
+    });
   });
 });
 
-test("Math.sqrt()", () => {
-  expect(Math.sqrt(4)).toBe(2);
-  expect(Math.sqrt(144)).toBe(12);
-  expect(Math.sqrt(2)).toBe(Math.SQRT2);
-});
+// ############
+// const workflowFunction = vi.fn(
+//   () => ServerlessRunningStages.getAllStagesForRegion
+// );
 
-test("JSON", () => {
-  const input = {
-    foo: "hello",
-    bar: "world",
-  };
+// expect(
+//   ServerlessRunningStages.getAllStagesForRegion("my-region")
+// ).toReturnWith([]);
 
-  const output = JSON.stringify(input);
+// const response = await cfnMock.send(new DescribeStacksCommand({}));
 
-  expect(output).eq('{"foo":"hello","bar":"world"}');
-  assert.deepEqual(JSON.parse(output), input, "matches original");
-});
-
-it("foo", () => {
-  assert.equal(Math.sqrt(4), 2);
-});
+// console.log("response:", response);
+// expect(response.Stacks).toHaveLength(2);
+// expect(response.Stacks?.[0]).toStrictEqual({
+//   CreationTime: new Date(),
+//   sk: "b",
+// });
+// ############
