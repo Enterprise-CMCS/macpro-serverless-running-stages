@@ -5,7 +5,7 @@ SHIFT + CMD/CTRL + V
 -->
 
 <h1 align="center" style="border-bottom: none;"> macpro-serverless-running-stages</h1>
-<h3 align="center">NPM module to identify currently running stages of the [Serverless framework](https://www.serverless.com/) in an AWS account.</h3>
+<h3 align="center">NPM module to identify currently running stages of the <a href="https://www.serverless.com/">Serverless framework</a> in an AWS account.</h3>
 <p align="center">
   <a href="https://github.com/cmsgov/macpro-serverless-running-stages/releases/latest">
     <img alt="latest release" src="https://img.shields.io/github/release/cmsgov/macpro-serverless-running-stages.svg">
