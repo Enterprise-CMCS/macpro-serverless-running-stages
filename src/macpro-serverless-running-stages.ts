@@ -4,12 +4,11 @@ import {
   Stack,
   Tag,
 } from "@aws-sdk/client-cloudformation";
-import * as readlineSync from "readline-sync";
 
 function tagsListToTagDict(tagList: Tag[]) {
-  const retVal: any = {}; // TODO: remove any
+  const retVal: { [key: string]: string } = {};
   for (const keyValPair of tagList) {
-    if (keyValPair.Key) {
+    if (keyValPair.Key && keyValPair.Value) {
       retVal[keyValPair.Key] = keyValPair.Value;
     }
   }
