@@ -16,13 +16,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Configure direnv
         uses: HatsuneMiku3939/direnv-action@v1
 
       - name: Install Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
 
@@ -55,7 +55,7 @@ jobs:
           SLACK_TITLE: Currently Running Stages
           SLACK_MESSAGE: ${{ steps.runningStages.outputs.runningStages }}
           SLACK_USERNAME: ${{ github.repository }} - ${{ github.workflow }}
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           MSG_MINIMAL: true
 
       - name: Slack Notification - notify of failure reporting on running stages
@@ -68,5 +68,5 @@ jobs:
           SLACK_TITLE: Failure retrieving currently running stages
           SLACK_MESSAGE: Failure retrieving currently running stages
           SLACK_USERNAME: ${{ github.repository }} - ${{ github.workflow }}
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           MSG_MINIMAL: true
