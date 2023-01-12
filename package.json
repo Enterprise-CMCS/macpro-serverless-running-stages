@@ -1,5 +1,9 @@
 {
   "name": "@enterprise-cmcs/macpro-serverless-running-stages",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "1.0.0",
   "description": "Returns a list of all running Serverless stage in an AWS region.",
   "main": "./dist/index.js",
