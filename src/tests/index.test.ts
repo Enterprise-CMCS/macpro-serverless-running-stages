@@ -54,6 +54,7 @@ describe("getAllStagesForRegion command's tests", () => {
     );
 
     const runningStages = await workflowFunction("my-region");
+
     expect(workflowFunction).toHaveBeenCalledWith("my-region");
     expect(runningStages).toStrictEqual([]);
     expect(workflowFunction).toReturnWith([]);

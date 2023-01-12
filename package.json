@@ -1,7 +1,7 @@
 {
   "name": "@enterprise-cmcs/macpro-serverless-running-stages",
   "version": "1.0.0",
-  "description": "Deletes all Cloudformation Stacks associated to a specified Serverless stage.",
+  "description": "Returns a list of all running Serverless stage in an AWS region.",
   "main": "./dist/index.js",
   "typings": "./dist/index.js",
   "scripts": {
