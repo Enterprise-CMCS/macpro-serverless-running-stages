@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/compare/v1.0.3...v1.0.4) (2023-01-12)
+
+
+### Bug Fixes
+
+* **update.npmignore:** Update .npmignore to exclude examples and .codeclimate.yml ([50f1bae](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/commit/50f1baea6cfdff9c551441a854caea30e43c234a))
+
 ## [1.0.3](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/compare/v1.0.2...v1.0.3) (2023-01-12)
 
 

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Returns a list of all running Serverless stage in an AWS region.",
   "main": "./dist/index.js",
   "typings": "./dist/index.js",
