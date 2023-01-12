@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/compare/v1.0.1...v1.0.2) (2023-01-12)
+
+
+### Bug Fixes
+
+* **prepublish-false:**  Remove prepublish from the package.json, thinking to avoid running 'build' after semantic release publishes ([d078ffd](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/commit/d078ffd2e0334492d9dda3c034f2f0d73c5566b3))
+
 ## [1.0.1](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/compare/v1.0.0...v1.0.1) (2023-01-12)
 
 
