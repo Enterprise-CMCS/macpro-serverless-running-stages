@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/compare/v1.0.2...v1.0.3) (2023-01-12)
+
+
+### Bug Fixes
+
+* **permissions:**  Trying to change the permissions assigned to the GITHUB_TOKEN to avoid getting rate limited ([459c328](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/commit/459c3287009c9ca75d82c5258458ab43a4b5ed9f))
+
 ## [1.0.2](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/compare/v1.0.1...v1.0.2) (2023-01-12)
 
 
