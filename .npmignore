@@ -4,3 +4,5 @@ src
 tsconfig.json
 tslint.json
 .prettierignore
+examples
+.codeclimate.yml
