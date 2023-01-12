@@ -4,14 +4,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Returns a list of all running Serverless stage in an AWS region.",
   "main": "./dist/index.js",
   "typings": "./dist/index.js",
   "scripts": {
     "bp": "rm -rf ./dist && rm -rf ./node_modules && npm i --save && tsc && npm publish",
     "build": "tsc",
-    "prepublishOnly": "npm run build",
     "test": "vitest --config ./src/tests/vitest.config.ts",
     "test-ci": "vitest run --config ./src/tests/vitest.config.ts",
     "test-gui": "vitest --ui",
