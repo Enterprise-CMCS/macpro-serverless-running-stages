@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/compare/v1.0.4...v1.0.5) (2023-01-25)
+
+
+### Bug Fixes
+
+* **update-readme:** Corrected codeclimate tags and license ([dfd4e74](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/commit/dfd4e74b7db920ab87ae0ee36eb7092e33a760be))
+
 ## [1.0.4](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/compare/v1.0.3...v1.0.4) (2023-01-12)
 
 
