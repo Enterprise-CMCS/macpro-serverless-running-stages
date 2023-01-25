@@ -8,10 +8,10 @@
     <img alt="npm latest version" src="https://img.shields.io/npm/v/@enterprise-cmcs/macpro-serverless-running-stages/latest.svg">
   </a>
   <a href="https://codeclimate.com/github/Enterprise-CMCS/macpro-serverless-running-stages/maintainability">
-    <img src="https://api.codeclimate.com/v1/badges/7aa40b9f69c550a8cf72/maintainability" />
+    <img src="https://api.codeclimate.com/v1/badges/beab0057aa95ef1e6a78/maintainability" />
   </a>
   <a href="https://codeclimate.com/github/Enterprise-CMCS/macpro-serverless-running-stages/test_coverage">
-    <img src="https://api.codeclimate.com/v1/badges/7aa40b9f69c550a8cf72/test_coverage" />
+    <img src="https://api.codeclimate.com/v1/badges/beab0057aa95ef1e6a78/test_coverage" />
   </a>
   <a href="https://github.com/semantic-release/semantic-release">
     <img alt="semantic-release: angular" src="https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release">
@@ -91,6 +91,6 @@ success Using linked package for "@enterprise-cmcs/macpro-serverless-running-sta
 
 ## License
 
-[![License](https://img.shields.io/badge/License-CC0--1.0--Universal-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 See [LICENSE](LICENSE) for full details.
