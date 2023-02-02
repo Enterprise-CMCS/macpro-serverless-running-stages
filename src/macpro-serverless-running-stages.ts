@@ -21,27 +21,21 @@ export class ServerlessRunningStages {
     ignoreStages = ["master"]
   ) {
     const client = new CloudFormationClient({ region });
-    const stages: string[] = [];
-
+    const uniqueStages: Set<string> = new Set();
     for await (const page of paginateDescribeStacks({ client }, {})) {
       if (page.Stacks) {
-        stages.push(
-          ...new Set(
-            page.Stacks.reduce((acc: string[], stack: Stack) => {
-              const tags = tagsListToTagDict(stack.Tags || []);
-              if (
-                tags["STAGE"] &&
-                tags["PROJECT"] === process.env.PROJECT &&
-                !ignoreStages.includes(tags["STAGE"])
-              ) {
-                acc.push(tags["STAGE"]);
-              }
-              return acc;
-            }, [])
-          )
-        );
+        page.Stacks.forEach((stack: Stack) => {
+          const tags = tagsListToTagDict(stack.Tags || []);
+          if (
+            tags["STAGE"] &&
+            tags["PROJECT"] === process.env.PROJECT &&
+            !ignoreStages.includes(tags["STAGE"])
+          ) {
+            uniqueStages.add(tags["STAGE"]);
+          }
+        });
       }
     }
-    return stages;
+    return Array.from(uniqueStages);
   }
 }
