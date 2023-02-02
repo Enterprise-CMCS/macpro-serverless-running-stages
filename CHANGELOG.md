@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/compare/v1.0.5...v1.0.6) (2023-02-02)
+
+
+### Bug Fixes
+
+* **duplicate-stages:** fix bug discovered that created duplicate stage reports when stages are split between pages ([#16](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/issues/16)) ([3a123fa](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/commit/3a123fa33ad17a252dfa04d4024e526e33c7635c))
+
 ## [1.0.5](https://github.com/enterprise-cmcs/macpro-serverless-running-stages/compare/v1.0.4...v1.0.5) (2023-01-25)
 
 
