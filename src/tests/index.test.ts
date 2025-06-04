@@ -34,7 +34,7 @@ describe("getAllStagesForRegion command's tests", () => {
       ],
     });
     const workflowFunction = vi.fn((region) =>
-      ServerlessRunningStages.getAllStagesForRegion(region)
+      ServerlessRunningStages.getAllStagesForRegion(region),
     );
 
     const runningStages = await workflowFunction("my-region");
@@ -50,7 +50,7 @@ describe("getAllStagesForRegion command's tests", () => {
       Stacks: [sampleStackResponse],
     });
     const workflowFunction = vi.fn((region) =>
-      ServerlessRunningStages.getAllStagesForRegion(region)
+      ServerlessRunningStages.getAllStagesForRegion(region),
     );
 
     const runningStages = await workflowFunction("my-region");

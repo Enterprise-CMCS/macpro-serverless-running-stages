@@ -18,7 +18,7 @@ function tagsListToTagDict(tagList: Tag[]) {
 export class ServerlessRunningStages {
   static async getAllStagesForRegion(
     region: string,
-    ignoreStages = ["master"]
+    ignoreStages = ["master"],
   ) {
     const client = new CloudFormationClient({ region });
     const uniqueStages: Set<string> = new Set();
