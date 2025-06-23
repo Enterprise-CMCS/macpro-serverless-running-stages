@@ -1,0 +1,59 @@
+{
+  "name": "macpro-serverless-running-stages",
+  "description": "MACPro Platform is building an npm module to be consumed by other projects (not restricted to macpro)",
+  "longDescription": "The macpro-serverless-running-stages is an NPM module designed to identify currently running stages of the Serverless framework in an AWS account. This TypeScript-based library integrates with AWS CloudFormation to scan CloudFormation stacks and extract stage information based on resource tags. The module is specifically built for the MACPro Platform and can be consumed by other CMS projects to programmatically discover active Serverless deployments across different stages and environments. It provides a simple API that accepts an AWS region and returns a list of active stages while allowing users to ignore specific stages like 'master'. The library uses the AWS SDK for CloudFormation client operations and includes comprehensive testing coverage. As part of CMS's healthcare technology infrastructure, this tool helps manage and monitor serverless application deployments across Medicare and Medicaid systems, supporting operational efficiency and deployment management for government healthcare applications.",
+  "status": "Production",
+  "permissions": {
+    "licenses": [
+      {
+        "name": "MIT",
+        "URL": "https://opensource.org/licenses/MIT"
+      }
+    ],
+    "usageType": "openSource",
+    "exemptionText": ""
+  },
+  "organization": "Centers for Medicare & Medicaid Services",
+  "repositoryURL": "https://github.com/Enterprise-CMCS/macpro-serverless-running-stages",
+  "projectURL": "https://www.npmjs.com/package/@enterprise-cmcs/macpro-serverless-running-stages",
+  "repositoryHost": "github.com/Enterprise-CMCS",
+  "repositoryVisibility": "public",
+  "vcs": "git",
+  "laborHours": 2175,
+  "reuseFrequency": {
+    "forks": 0,
+    "clones": 0
+  },
+  "platforms": ["web", "linux", "other"],
+  "categories": ["it-development", "data-analytics"],
+  "softwareType": "library",
+  "languages": [
+    "TypeScript"
+  ],
+  "maintenance": "contract",
+  "contractNumber": "75FCMC24F0027",
+  "date": {
+    "created": "2023-01-09T20:47:58Z",
+    "lastModified": "2025-06-22T04:48:40Z",
+    "metaDataLastUpdated": "2025-06-22T05:32:44.755Z"
+  },
+  "tags": ["serverless", "aws", "cloudformation", "stages", "deployment", "macpro", "npm", "typescript"],
+  "contact": {
+    "email": "bpaige@gswell.com",
+    "name": "Benjamin Paige"
+  },
+  "feedbackMechanisms": [
+    "https://github.com/Enterprise-CMCS/macpro-serverless-running-stages/issues"
+  ],
+  "localisation": false,
+  "repositoryType": "libraries",
+  "userInput": false,
+  "fismaLevel": "Moderate",
+  "group": "MACPro Platform",
+  "projects": ["MACPro"],
+  "systems": ["AWS CloudFormation"],
+  "upstream": "https://github.com/Enterprise-CMCS/macpro-serverless-running-stages/network/dependencies",
+  "subsetInHealthcare": ["Policy", "Operational", "Medicare", "Medicaid"],
+  "userType": ["Government"],
+  "maturityModelTier": 3
+}
